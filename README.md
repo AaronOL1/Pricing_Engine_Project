@@ -19,7 +19,7 @@ The company faces three critical issues:
 ### 🏗️ Architecture & Logic
 The solution is built upon a robust **Star Schema**:
 ### 📊 Entity-Relationship Diagram (Star Schema)
-![Pricing Engine ERD](assets/erd_schema.png)
+![Pricing Engine ERD](assets/ERD_Schema.png)
 
 * **ETL Layer (SQL):**
     * Ingests raw files from `Supplier_A` (Local) and `Supplier_B` (International).
