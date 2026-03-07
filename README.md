@@ -1,7 +1,7 @@
 # 🏎️ Automotive Pricing Engine & Profitability Simulator
 
 ### 📋 Project Overview
-This project simulates a real-world **Pricing Strategy Architecture** for an Automotive Spare Parts distributor. It addresses the common industry challenge of managing chaotic supplier data, calculating landed costs with taxes/freight, and optimizing margins for both **B2B (Wholesale)** and **B2C (Retail)** channels..
+This project simulates a real-world **Pricing Strategy Architecture** for an Automotive Spare Parts distributor. It addresses the common industry challenge of managing chaotic supplier data, calculating landed costs with taxes/freight, and optimizing margins for both **B2B (Wholesale)** and **B2C (Retail)** channels.
 
 Instead of analyzing a static dataset, this project builds a complete **Data Engineering & BI pipeline** from scratch.
 
@@ -37,7 +37,6 @@ The solution is built upon a robust **Star Schema**:
 ### 🚀 How to Run
 1.  Execute `01_Market_Simulation_DDL.sql` in SQL Server Management Studio (SSMS) to build the database schema and populate mock data.
 2.  (Upcoming) Connect Power BI to the `Pricing_Engine_Project` database.
-
 
 ---
 *Author: Aaron Olmedo*
