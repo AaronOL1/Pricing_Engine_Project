@@ -32,8 +32,8 @@ CREATE TABLE Dim_Products (
     category_rotation NVARCHAR(50),         --  'High Rotation', 'Low Rotation'
     landed_cost DECIMAL(10, 2),             -- The final cost including taxes/freight
     competitor_market_price DECIMAL(10, 2), -- For B2C traffic light logic
-    days_in_stock INT
-    quality_tier NVARCHAR(50);
+    days_in_stock INT,
+    quality_tier NVARCHAR(50)
 );
 
 -- 1.2 Customers Dimension
