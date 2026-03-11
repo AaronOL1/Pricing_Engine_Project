@@ -1,43 +1,47 @@
 # 🏎️ Automotive Pricing Engine & Profitability Simulator
 
 ### 📋 Project Overview
-This project simulates a real-world **Pricing Strategy Architecture** for an Automotive Spare Parts distributor. It addresses the common industry challenge of managing chaotic supplier data, calculating landed costs with taxes/freight, and optimizing margins for both **B2B (Wholesale)** and **B2C (Retail)** channels.
+This project is an end-to-end **Business Intelligence & Pricing Strategy** solution for an Automotive Spare Parts distributor. It tackles the entire data lifecycle: from managing chaotic supplier data and calculating complex landed costs in SQL, to detecting margin leakage and simulating pricing strategies in a highly interactive Power BI dashboard.
 
-Instead of analyzing a static dataset, this project builds a complete **Data Engineering & BI pipeline** from scratch.
+Instead of analyzing a flat, static dataset, this project builds a complete **Data Engineering & Analytics pipeline** from scratch.
 
-### 💼 Business Problem
-The company faces three critical issues:
-1.  **Supplier Chaos:** Multiple vendors (Local & International) provide price lists in different formats, currencies, and naming conventions.
-2.  **Pricing Complexity:** Difficulty in determining the "Floor Price" (Minimum acceptable price) due to fluctuating import taxes and freight costs.
-3.  **Margin Leakage:** B2B Sales teams often grant excessive discounts without visibility into the real impact on profitability.
+### 💼 The Business Problem
+The company faced three critical bottlenecks:
+1. **Supplier Chaos:** Multiple vendors (Local & International) provided price lists in different formats, currencies, and naming conventions.
+2. **Pricing Complexity:** Difficulty in determining the "Floor Price" (Minimum acceptable price) due to fluctuating import taxes and freight costs.
+3. **Margin Leakage (The Silent Killer):** B2B Sales teams were granting excessive, unauthorized discounts to close deals, severely eroding the company's profitability without management visibility.
 
-### 🛠️ Tech Stack
-* **SQL Server (T-SQL):** For ETL processes, data normalization, supplier consolidation, and complex logic injection (Tax/Freight calculations).
-* **Power BI:** For Data Modeling (Star Schema), DAX Measures, and "What-If" parameter simulations.
+### 💡 The Solution & Dashboard Features
+To solve this, I developed a 3-stage Power BI Dashboard driven by a robust SQL backend:
+
+* **📊 Phase 1: Executive Overview** * Tracks high-level financial KPIs: Target Revenue, Actual Revenue, and Gross Margin distribution across B2B and B2C segments.
+* **🕵️‍♂️ Phase 2: Margin Leakage Diagnostic**
+  * **Price Walk (Waterfall Chart):** Mathematically isolates justified corporate discounts from unauthorized margin leakage (money given away by sales reps).
+  * **Wall of Shame:** A Top 10 breakdown of the worst-performing clients where the company is losing the most margin.
+* **🎛️ Phase 3: Strategic Pricing Simulator (What-If Analysis)**
+  * **Interactive Calculator:** Allows management to simulate global price changes (-20% to +20%) and instantly see the dollar impact on the Gross Margin per SKU.
+  * **Strategy Matrix (Scatter Plot):** Classifies the 750+ parts catalog into 4 quadrants (Volume vs. Profitability) to identify which SKUs can absorb a price hike and which require aggressive liquidation promotions.
+
+### 🛠️ Tech Stack & Architecture
+* **SQL Server (T-SQL):** Data ingestion, normalization (fuzzy logic for SKUs), and ETL processes to calculate `Landed_Cost` (FOB + Freight + Tariffs).
+* **Power BI:** Data Modeling (Star Schema).
+* **Advanced DAX:** Complex measure creation (Dynamic Pricing, Margin Leakage isolation, What-If parameters).
 * **Data Strategy:** Hybrid Pricing Model (Competitor-based for High Rotation SKUs + Cost-Plus for Long Tail parts).
 
-### 🏗️ Architecture & Logic
-The solution is built upon a robust **Star Schema**:
-### 📊 Entity-Relationship Diagram (Star Schema)
+### 📊 Entity-Relationship Diagram
 ![Pricing Engine ERD](assets/ERD_Schema.png)
 
-* **ETL Layer (SQL):**
-    * Ingests raw files from `Supplier_A` (Local) and `Supplier_B` (International).
-    * Normalizes SKUs using fuzzy logic principles.
-    * Calculates `Landed_Cost` = *FOB Price + Freight + Import Tariffs*.
-* **Analytical Layer (Power BI):**
-    * **B2C Logic:** Dynamic "Traffic Light" system comparing internal prices vs. Competitor Market Prices.
-    * **B2B Logic:** Volume-based discount simulator to prevent margin erosion on bulk orders.
-
-### 📂 Key Files
-* `01_Market_Simulation_DDL.sql`: Script to generate the synthetic database, creating the "Supplier Chaos" scenario and the Master Catalog.
+### 📂 Repository Structure
+* `01_Market_Simulation_DDL.sql`: Script to generate the synthetic database and the Master Catalog.
 * `02_Pricing_Logic_ETL.sql`: Stored procedures to clean data and calculate Landed Costs.
-* *(More files to be added as the project progresses)*
+* `Dashboard_Pricing_Engine.pbix`: The final Power BI file containing the Star Schema model and DAX measures.
+* `Pricing_Dashboard_Presentation.pdf`: A static export of the dashboard for quick viewing.
 
-### 🚀 How to Run
-1.  Execute `01_Market_Simulation_DDL.sql` in SQL Server Management Studio (SSMS) to build the database schema and populate mock data.
-2.  (Upcoming) Connect Power BI to the `Pricing_Engine_Project` database.
+### 🚀 How to Explore This Project
+1. 📄 **[View the Dashboard PDF here](link_to_your_pdf)** to see the final visual results.
+2. 💻 Download the `.pbix` file to interact with the DAX formulas and the Pricing Simulator.
+3. 🗄️ Run the `.sql` scripts in SSMS to see the ETL logic that feeds the dashboard.
 
 ---
 *Author: Aaron Olmedo*
-*Status: Active Development*
+*Role: Data Analyst / BI Developer*
